@@ -25,9 +25,21 @@ public class Study_record {
     private String study_day;
     private String contents;
 
-    @CreationTimestamp
+    @Column(updatable = false)  // 첫 생성 시에만 값을 넣도록 설정
     private LocalDateTime reg_day;
-    @UpdateTimestamp
     private LocalDateTime mod_day;
+
+    // 생성 시 시간 자동 설정
+    @PrePersist
+    public void prePersist() {
+        if (this.reg_day == null) {
+            this.reg_day = LocalDateTime.now();  // 현재 시간을 설정
+        }
+    }
+    // 업데이트 시 시간 자동 설정
+    @PreUpdate
+    public void preUpdate() {
+        this.mod_day = LocalDateTime.now();  // 현재 시간을 설정
+    }
 
 }
