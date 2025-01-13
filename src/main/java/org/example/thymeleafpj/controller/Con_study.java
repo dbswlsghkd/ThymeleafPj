@@ -36,8 +36,8 @@ public class Con_study {
     // insert
     @PostMapping("/insert_exe")
     public String doInsert(@ModelAttribute Study_record record) {
-        log.info("insert study: {}", record);
-        record.setReg_day(LocalDateTime.now());
+        // log.info("insert study: {}", record);
+        // record.setReg_day(LocalDateTime.now());
         studyRecordService.doInsert(record);
         return "redirect:/study/list";
     }
@@ -64,15 +64,4 @@ public class Con_study {
         return "redirect:/study/list";
     }
 
-    // @PutMapping("/modify")
-    // public String doModify(@ModelAttribute Study_record record) {
-    //     studyRecordService.doUpdate(record);
-    //     return "redirect:/study/study_list";
-    // }
-    //
-    // @DeleteMapping("/delete/key_id{id}")
-    // public String doModify(@ModelAttribute Study_record record) {
-    //     studyRecordService.doUpdate(record);
-    //     return "redirect:/study/study_list";
-    // }
 }
