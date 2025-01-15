@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ThymeleafPj.mapper.StudyMemberMapper">
+    <!-- 검색어 기반 Part 조회 -->
+
+    <select id="findAll" parameterType="map" resultType="org.example.thymeleafpj.entity.Study_member">
+        SELECT
+            member_id AS memberId,
+            login_id AS loginId,
+            password,
+            name,
+            role,
+            reg_day AS regDay,
+            email
+        FROM study_member
+        LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+    <!-- 전체 데이터 개수 조회 -->
+    <select id="countStMembers" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM study_member
+    </select>
+
+<!--    <select id="nana" parameterType="map" resultType="com.example.ThymeleafPj.entity.Buy">-->
+<!--        SELECT buy_bal_no-->
+<!--        FROM buy-->
+<!--        ORDER BY buy_bal_no-->
+<!--        OFFSET #{offset} ROWS FETCH NEXT #{pageSize} ROWS ONLY-->
+<!--    </select>-->
+
+
+<!--    <select id="findBySearch" parameterType="map" resultType="com.example.ThymeleafPj.entity.Part">-->
+<!--        SELECT part_code, part_name, part_std, part_skey-->
+<!--        FROM part-->
+<!--        WHERE part_code LIKE '%' + #{searchTerm} + '%'-->
+<!--           OR part_name LIKE '%' + #{searchTerm} + '%'-->
+<!--           OR part_std LIKE '%' + #{searchTerm} + '%'-->
+<!--        ORDER BY part_code-->
+<!--        OFFSET #{offset} ROWS FETCH NEXT #{pageSize} ROWS ONLY-->
+<!--    </select>-->
+
+
+
+<!--    &lt;!&ndash; 전체 데이터 개수 조회 &ndash;&gt;-->
+<!--    <select id="countPartsSearch" parameterType="map" resultType="int">-->
+<!--        SELECT COUNT(*)-->
+<!--        FROM part-->
+<!--        WHERE part_code LIKE '%' + #{searchTerm} + '%'-->
+<!--           OR part_name LIKE '%' + #{searchTerm} + '%'-->
+<!--           OR part_std LIKE '%' + #{searchTerm} + '%'-->
+<!--    </select>-->
+
+<!--    <select id="findByPartCode" parameterType="String" resultType="com.example.ThymeleafPj.entity.Part">-->
+<!--        SELECT *-->
+<!--        FROM part-->
+<!--        WHERE part_code = #{partCode}-->
+<!--    </select>-->
+
+<!--    <select id="findPartCode" resultType="com.example.ThymeleafPj.entity.Part">-->
+<!--        SELECT *-->
+<!--        FROM part-->
+<!--        WHERE part_code = #{partCode}-->
+<!--    </select>-->
+</mapper>

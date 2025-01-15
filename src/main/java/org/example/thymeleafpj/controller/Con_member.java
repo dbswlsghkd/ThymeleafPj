@@ -2,8 +2,12 @@ package org.example.thymeleafpj.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.thymeleafpj.dto.StudyMemberDto;
 import org.example.thymeleafpj.entity.Study_member;
 import org.example.thymeleafpj.service.StudyMemberService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +25,9 @@ public class Con_member {
     @GetMapping("/list")
     public String doMemberList(Model model) {
         log.info("doMemberList called");
-
-        List<Study_member> stM = studyMemberService.doSelectAll();
-        model.addAttribute("stM", stM);
+        Pageable pageable = PageRequest.of(0, 15);
+        Page<Study_member> stM = studyMemberService.doSelectAll(pageable);
+        model.addAttribute("stM", stM.getContent());
 
         return "member/member_list";
     }

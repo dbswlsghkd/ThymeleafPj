@@ -31,12 +31,14 @@
 
         <th:block th:each="stM:${stM}">
             <div class="row mb-2">
-                <div class="col" th:text="${stM.getMemberId()}">아이디</div>
-                <div class="col" th:text="${stM.getLoginId()}">이름</div>
-                <div class="col" th:text="${stM.getRole()}">권한</div>
-                <div class="col" th:text="${stM.getReg_day()}">등록일자</div>
-                <div class="col" th:text="${stM.getEmail()}">이메일</div>
-                <div class="col"><a th:href="@{/member/delete(member_id=${stM.getMemberId()})}">삭제</a></div>
+                <div class="col" th:text="${stM.memberId}">아이디</div>
+                <div class="col" th:text="${stM.loginId}">이름</div>
+                <div class="col" th:text="${stM.role}">권한</div>
+                <div class="col" th:text="${stM.regDay}">등록일자</div>
+                <div class="col" th:text="${stM.email}">이메일</div>
+                <div class="col">
+                    <a th:href="@{/member/delete(member_id=${stM.memberId})}">삭제</a>
+                </div>
             </div>
         </th:block>
 

@@ -17,14 +17,14 @@ class StudyRecordRepoTest {
 
     @Test
     public void testSelectAll(){
-        List<Study_record> list = studyRecordRepo.findAll();
-
-        for(Study_record study_record : list){
-            System.out.println(study_record.getKey_id());
-            System.out.println(study_record.getStudy_day());
-            System.out.println(study_record.getContents());
-            System.out.println(study_record.getReg_day());
-
-        }
+        // List<Study_record> list = studyRecordRepo.findAll();
+        //
+        // for(Study_record study_record : list){
+        //     System.out.println(study_record.getKey_id());
+        //     System.out.println(study_record.getStudy_day());
+        //     System.out.println(study_record.getContents());
+        //     System.out.println(study_record.getReg_day());
+        //
+        // }
     }
 }
