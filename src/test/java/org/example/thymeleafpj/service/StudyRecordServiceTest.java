@@ -25,9 +25,9 @@ class StudyRecordServiceTest {
     @Test
     void doInsert() {
         Study_record study_record = Study_record.builder()
-                .study_day("2025-01-12")
+                .studyDay("2025-01-12")
                 .contents("Test Insert")
-                .reg_day(LocalDateTime.now())
+                .regDay(LocalDateTime.now())
                 .build();
 
         studyRecordService.doInsert(study_record);
@@ -45,7 +45,7 @@ class StudyRecordServiceTest {
         // 부분만 수정 하는 방법
         Study_record allStudy = studyRecordService.doSelectOne(3);
 
-        allStudy.setStudy_day("2025-01-16");
+        allStudy.setStudyDay("2025-01-16");
 
         studyRecordService.doUpdate(allStudy);
     }

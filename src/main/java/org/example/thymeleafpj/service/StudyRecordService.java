@@ -2,26 +2,29 @@ package org.example.thymeleafpj.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.thymeleafpj.entity.Study_record;
+import org.example.thymeleafpj.mapper.StudyRecordMapper;
 import org.example.thymeleafpj.repository.StudyRecordRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
-// @RequiredArgsConstructor
+@RequiredArgsConstructor
 public class StudyRecordService {
 
     private final StudyRecordRepo studyRecordRepo;
+    private final StudyRecordMapper studyRecordMapper;
 
-    @Autowired
-    public StudyRecordService(StudyRecordRepo studyRecordRepo) {
-        this.studyRecordRepo = studyRecordRepo;
+
+    public Page<Study_record> doSelectAll(Pageable pageable){
+        // return studyRecordRepo.findAll();
+        return studyRecordMapper.findAll(pageable);
     }
 
-    public List<Study_record> doSelectAll(){
-        return studyRecordRepo.findAll();
-    }
     // select
     public Study_record doSelectOne(int key_id){
         return studyRecordRepo.findById(key_id).get();

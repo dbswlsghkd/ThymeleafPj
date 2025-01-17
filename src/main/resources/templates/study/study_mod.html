@@ -18,11 +18,11 @@
 
 <main>
     <form name="frm_study_mod" th:action="@{/study/modify_exe}" method="post">
-        <div>KeyID : <input type="text" name="key_id" th:value="${modify.getKey_id()}" readonly></div>
+        <div>KeyID : <input type="text" name="keyId" th:value="${modify.keyId}" readonly></div>
         <br>
-        <div>StudyDay : <input type="text" name="study_day" th:value="${modify.getStudy_day()}"></div>
+        <div>StudyDay : <input type="text" name="studyDay" th:value="${modify.studyDay}"></div>
         <br>
-        <div>Cotents : <input type="text" name="contents" th:value="${modify.getContents()}" size="70"></div>
+        <div>Cotents : <input type="text" name="contents" th:value="${modify.contents}" size="70"></div>
         </p>
         <input type="submit" value="수정하기">
     </form>

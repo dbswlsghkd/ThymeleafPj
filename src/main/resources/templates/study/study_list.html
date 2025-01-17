@@ -33,12 +33,12 @@
 
         <th:block th:each="study:${list}">
             <div class="row mb-2">
-                <div class="col" th:text="${study.getKey_id()}">Key_Id(Vo)</div>
-                <div class="col" th:text="${study.getStudy_day()}">공부일자</div>
-                <div class="col" th:text="${study.getContents()}">공부내용</div>
-                <div class="col" th:text="${study.getReg_day()}">등록일자</div>
-                <div class="col"><a th:href="@{/study/modify(key_id=${study.getKey_id()})}"> 수정</a></div>
-                <div class="col"><a th:href="@{/study/delete(key_id=${study.getKey_id()})}"> 삭제</a></div>
+                <div class="col" th:text="${study.keyId}">Key_Id(Vo)</div>
+                <div class="col" th:text="${study.studyDay}">공부일자</div>
+                <div class="col" th:text="${study.contents}">공부내용</div>
+                <div class="col" th:text="${study.regDay}">등록일자</div>
+                <div class="col"><a th:href="@{/study/modify(key_id=${study.keyId})}"> 수정</a></div>
+                <div class="col"><a th:href="@{/study/delete(key_id=${study.keyId})}"> 삭제</a></div>
             </div>
         </th:block>
 

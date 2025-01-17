@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ThymeleafPj.mapper.StudyRecordMapper">
+    <!-- 검색어 기반 Part 조회 -->
+
+    <select id="findAll" parameterType="map" resultType="org.example.thymeleafpj.entity.Study_record">
+        SELECT key_id as keyId, study_day as studyDay, contents, reg_day as regDay, mod_day as modDay
+        FROM study_record
+        LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+    <!-- 전체 데이터 개수 조회 -->
+    <select id="countStRecords" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM study_record
+    </select>
+
+</mapper>

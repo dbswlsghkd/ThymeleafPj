@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.thymeleafpj.entity.Study_record;
 import org.example.thymeleafpj.service.StudyRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,15 +25,16 @@ public class Con_study {
 
     @GetMapping("/list")
     public String doStudyList(Model model) {
-        List<Study_record> list =  studyRecordService.doSelectAll();
+        Pageable pageable = PageRequest.of(0, 15);
+        Page<Study_record> list =  studyRecordService.doSelectAll(pageable);
         System.out.println("List: ------------->" + list); // 반환 값 확인
-        model.addAttribute("list", list);
-        return "/study/study_list";
+        model.addAttribute("list", list.getContent());
+        return "study/study_list";
     }
 
     @GetMapping("/insert")
     public String doInsertStudy() {
-        return "/study/study_insert";
+        return "study/study_insert";
     }
 
     // insert
